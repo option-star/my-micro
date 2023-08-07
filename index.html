@@ -11,7 +11,9 @@
       singleSpa.registerApplication(
         // 注册应用
         "app1", // appName: 当前注册应用的名字
-        async () => {
+        async (props) => {
+          console.log('加载时执行');
+
           // 加载函数（返回promise）
           return {
             bootstrap: [
@@ -21,6 +23,9 @@
               async () => {
                 console.log("应用启动2");
               },
+              async () => {
+                console.log("应用启动3");
+              }
             ],
             mount: async () => {
               console.log("应用挂载");

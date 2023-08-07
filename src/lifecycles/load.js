@@ -14,7 +14,7 @@ function flattenFnArray(fns) {
 }
 
 /**
- * 将bootstrap、mount、unmount方法挂载在应用上
+ * 加载应用：将bootstrap、mount、unmount方法挂载在应用上
  * @param {*} app 应用
  */
 export async function toLoadPromise(app) {
