@@ -2,8 +2,20 @@ import { started } from "../start";
 
 export function reroute() {
   if (started) {
-    console.log("调用start方法");
+    // start: 进行应用挂载
+    return preformAppChanges(); // 根据路径来装载应用
   } else {
-    console.log("调用register方法");
+    // register: 进行应用加载
+    return loadApps(); // 预先加载应用
   }
 }
+
+/**
+ * 加载应用
+ */
+async function loadApps() {}
+
+/**
+ * 根据路径来装载应用
+ */
+async function preformAppChanges() {}
