@@ -1,3 +1,5 @@
+import { NOT_LOADED } from "./app.helper";
+
 const apps = []; // 用来存放所有应用
 
 /**
@@ -14,5 +16,6 @@ export function registerApplication(appName, loadApp, activeWhen, customProps) {
     loadApp,
     activeWhen,
     customProps,
+    status: NOT_LOADED,
   });
 }
