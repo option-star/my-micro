@@ -24,7 +24,7 @@
             },
           };
         },
-        (location) => location.hash.startWith("#/app1"), // activityWhen: 满足条件时调用loadApp方法
+        (location) => location.hash.startsWith("#/app1"), // activityWhen: 满足条件时调用loadApp方法
         { store: { name: "ljc" } } // customProps：自定义属性可用于父子应用通信
       );
       singleSpa.start(); // 挂载应用
