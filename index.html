@@ -9,34 +9,42 @@
     <script src="/lib/umd/single-spa.js"></script>
     <script>
       singleSpa.registerApplication(
-        // 注册应用
-        "app1", // appName: 当前注册应用的名字
+        "app1",
         async (props) => {
-          console.log('加载时执行');
-
-          // 加载函数（返回promise）
+          console.log("加载时执行1");
           return {
-            bootstrap: [
-              async () => {
-                console.log("应用启动1");
-              },
-              async () => {
-                console.log("应用启动2");
-              },
-              async () => {
-                console.log("应用启动3");
-              }
-            ],
+            bootstrap: async () => {
+              console.log("应用启动1");
+            },
             mount: async () => {
-              console.log("应用挂载");
+              console.log("应用挂载1");
             },
             unmount: async () => {
-              console.log("应用卸载");
+              console.log("应用卸载1");
             },
           };
         },
-        (location) => location.hash.startsWith("#/app1"), // activityWhen: 满足条件时调用loadApp方法
-        { store: { name: "ljc" } } // customProps：自定义属性可用于父子应用通信
+        (location) => location.hash.startsWith("#/app1"),
+        { store: { name: "ljc" } }
+      );
+      singleSpa.registerApplication(
+        "app2",
+        async (props) => {
+          console.log("加载时执行2");
+          return {
+            bootstrap: async () => {
+              console.log("应用启动2");
+            },
+            mount: async () => {
+              console.log("应用挂载2");
+            },
+            unmount: async () => {
+              console.log("应用卸载2");
+            },
+          };
+        },
+        (location) => location.hash.startsWith("#/app2"),
+        { store: { name: "ljc" } }
       );
       singleSpa.start(); // 挂载应用
     </script>
