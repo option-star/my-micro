@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my-single</title>
+  </head>
+  <body>
+    <script src="/lib/umd/single-spa.js"></script>
+    <script>
+      singleSpa.registerApplication( // 注册应用
+        "app1", // appName: 当前注册应用的名字
+        async () => {
+          // 加载函数（返回promise）
+          return {
+            bootstrap: async () => {
+              console.log("应用启动");
+            },
+            mount: async () => {
+              console.log("应用挂载");
+            },
+            unmount: async () => {
+              console.log("应用卸载");
+            },
+          };
+        },
+        (location) => location.hash.startWith("#/app1"), // activityWhen: 满足条件时调用loadApp方法
+        { store: { name: "ljc" } } // customProps：自定义属性可用于父子应用通信
+      );
+      singleSpa.start(); // 挂载应用
+    </script>
+  </body>
+</html>

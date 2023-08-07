@@ -1,0 +1,1 @@
+{"version":3,"file":"single-spa.js","sources":["../../src/applications/app.js","../../src/start.js"],"sourcesContent":["export function registerApplication() {}\n","export function start() {}\n"],"names":[],"mappings":";;;;;;CAAO,SAAS,mBAAmB,GAAG;;CCA/B,SAAS,KAAK,GAAG;;;;;;;;;;;;;"}
